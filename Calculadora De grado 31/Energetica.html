@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Energética Avanzada</title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <style>
+        body {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #2a5298;
+        }
+        .calculator {
+            background-color: #ffffff;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            width: 350px;
+            transition: transform 0.3s;
+        }
+        .calculator:hover {
+            transform: translateY(-5px);
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color:  #2a5298;
+            color: white;
+            border: none;
+            padding: 12px;
+            cursor: pointer;
+            border-radius: 6px;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 15px;
+            font-size: 18px;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Calculadora Energetica</h2>
+        <div class="input-group">
+            <label for="power">Potencia del electrodoméstico (W):</label>
+            <input type="number" id="power" placeholder="Ejemplo: 1000">
+        </div>
+        <div class="input-group">
+            <label for="hours">Horas de uso al día:</label>
+            <input type="number" id="hours" placeholder="Ejemplo: 5">
+        </div>
+        <div class="input-group">
+            <label for="days">Días de uso al mes:</label>
+            <input type="number" id="days" placeholder="Ejemplo: 30">
+        </div>
+        <div class="input-group">
+            <label for="cost">Costo por kWh (en tu moneda):</label>
+            <input type="number" id="cost" placeholder="Ejemplo: 0.15">
+        </div>
+        <button onclick="calculateEnergyCost()">Calcular Costo</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculateEnergyCost() {
+            const power = parseFloat(document.getElementById('power').value);
+            const hours = parseFloat(document.getElementById('hours').value);
+            const days = parseFloat(document.getElementById('days').value);
+            const cost = parseFloat(document.getElementById('cost').value);
+
+            if (isNaN(power) || isNaN(hours) || isNaN(days) || isNaN(cost)) {
+                alert('Por favor, ingrese valores válidos');
+                return;
+            }
+
+            const dailyConsumption = (power * hours) / 1000; // kWh por día
+            const monthlyConsumption = dailyConsumption * days;
+            const totalCost = monthlyConsumption * cost;
+
+            document.getElementById('result').innerHTML = `
+                <strong>Consumo diario:</strong> ${dailyConsumption.toFixed(2)} kWh<br>
+                <strong>Consumo mensual:</strong> ${monthlyConsumption.toFixed(2)} kWh<br>
+                <strong>Costo mensual:</strong> ${totalCost.toFixed(2)} en tu moneda
+            `;
+        }
+    </script>
+</body>
+</html>

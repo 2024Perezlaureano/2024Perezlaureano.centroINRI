@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadoras de Física Avanzadas</title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <style>
+        body {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+            min-height: 100vh;
+            margin: 0;
+            color: white;
+        }
+        .main{
+            display: grid;
+            grid-template-columns: repeat(3 ,1fr);
+        }
+        .calculator {
+            background-color: #ffffff;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            width: 300px;
+            color: #333;
+            margin: 20px;
+        }
+        h1 { margin-top: 20px; }
+        .calculator h2 { color: #2a5298; }
+        .input-group { margin-bottom: 15px; }
+        .input-group label { font-weight: bold; }
+        .input-group input { width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; }
+        button {
+            background-color: #2a5298;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover { background-color: #1e3c72; }
+        #result { margin-top: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Calculadoras de Física</h1>
+<div class="main">
+    <!-- Ley de Newton -->
+    <div class="calculator">
+        <h2>Fuerza (2da Ley de Newton)</h2>
+        <div class="input-group">
+            <label>Masa (kg):</label>
+            <input type="number" id="masa">
+        </div>
+        <div class="input-group">
+            <label>Aceleración (m/s²):</label>
+            <input type="number" id="aceleracion">
+        </div>
+        <button onclick="calculateForce()">Calcular Fuerza</button>
+        <div id="result-force"></div>
+    </div>
+
+    <!-- Energía Cinética -->
+    <div class="calculator">
+        <h2>Energía Cinética</h2>
+        <div class="input-group">
+            <label>Masa (kg):</label>
+            <input type="number" id="masa-ec">
+        </div>
+        <div class="input-group">
+            <label>Velocidad (m/s):</label>
+            <input type="number" id="velocidad">
+        </div>
+        <button onclick="calculateKineticEnergy()">Calcular Energía Cinética</button>
+        <div id="result-ec"></div>
+    </div>
+
+    <!-- Movimiento Rectilíneo Uniformemente Acelerado -->
+    <div class="calculator">
+        <h2>MRUA (Movimiento Rectilíneo Uniformemente Acelerado)</h2>
+        <div class="input-group">
+            <label>Velocidad Inicial (m/s):</label>
+            <input type="number" id="velocidad-inicial">
+        </div>
+        <div class="input-group">
+            <label>Aceleración (m/s²):</label>
+            <input type="number" id="aceleracion-mrua">
+        </div>
+        <div class="input-group">
+            <label>Tiempo (s):</label>
+            <input type="number" id="tiempo">
+        </div>
+        <button onclick="calculateMRUA()">Calcular Velocidad Final</button>
+        <div id="result-mrua"></div>
+    </div>
+</div>
+    <script>
+        function calculateForce() {
+            const masa = parseFloat(document.getElementById('masa').value);
+            const aceleracion = parseFloat(document.getElementById('aceleracion').value);
+            const fuerza = masa * aceleracion;
+            document.getElementById('result-force').innerText = `Fuerza: ${fuerza.toFixed(2)} N`;
+        }
+
+        function calculateKineticEnergy() {
+            const masa = parseFloat(document.getElementById('masa-ec').value);
+            const velocidad = parseFloat(document.getElementById('velocidad').value);
+            const energia = 0.5 * masa * velocidad * velocidad;
+            document.getElementById('result-ec').innerText = `Energía Cinética: ${energia.toFixed(2)} J`;
+        }
+
+        function calculateMRUA() {
+            const v0 = parseFloat(document.getElementById('velocidad-inicial').value);
+            const a = parseFloat(document.getElementById('aceleracion-mrua').value);
+            const t = parseFloat(document.getElementById('tiempo').value);
+            const vf = v0 + a * t;
+            document.getElementById('result-mrua').innerText = `Velocidad Final: ${vf.toFixed(2)} m/s`;
+        }
+    </script>
+</body>
+</html>

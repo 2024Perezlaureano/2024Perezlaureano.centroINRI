@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Soporte Técnico</title>
+</head>
+<style>
+/* ... (Estilos generales de la página) ... */
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    padding: 1em 0;
+}
+
+.contenedor-header {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    margin: 0 0.5em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+
+nav a:hover {
+    background-color: #555;
+}
+
+/* Secciones de soporte */
+#secciones-soporte {
+    padding: 2em 0;
+    
+}
+
+.contenedor-secciones {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.seccion-soporte {
+    width: 95%;
+    text-align: center;
+    padding: 2em;
+  
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.seccion-soporte i {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+    color: #333;
+
+}
+
+.seccion-soporte h3 {
+    margin-bottom: 1em;
+}
+
+.seccion-soporte a {
+    display: inline-block;
+    padding: 0.8em 1.5em;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.seccion-soporte a:hover {
+    background-color: #0056b3;
+}
+
+.seccion-soporte:hover {
+    transform: translateY(-5px);
+}
+
+/* Formulario de contacto */
+#formulario-contacto {
+    padding: 2em 0;
+    background-color: #fff;
+}
+
+.contenedor-formulario {
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.campo-formulario {
+    margin-bottom: 1.5em;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5em;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 0.8em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 120px;
+}
+
+button[type="submit"] {
+    padding: 1em 2em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+.main2{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+   
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+</style>
+<body>
+    <header>
+        <h1>Soporte Técnico</h1>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Calculadoras</a>
+            <a href="#">IA</a>
+            <a href="#">Contacto</a>
+            <a href="#">Login</a>
+        </nav>
+    </header>
+
+    <main>
+       
+        <section id="secciones-soporte">
+            <h2>¿Cómo podemos ayudarte?</h2>
+            <div class="main2">
+            <div class="seccion-soporte">
+                <h3>Preguntas Frecuentes (FAQ)</h3>
+                <p>Encuentra respuestas a las preguntas más comunes sobre nuestras calculadoras y servicios.</p>
+                <a href="faq.html">Ver preguntas frecuentes</a>
+            </div>
+
+            <div class="seccion-soporte">
+                <h3>Tutoriales y Guías</h3>
+                <p>Aprende a utilizar nuestras calculadoras paso a paso con nuestros tutoriales y guías detalladas.</p>
+                <a href="tutoriales.html">Ver tutoriales</a>
+            </div>
+
+            <div class="seccion-soporte">
+                <h3>Contacto de Soporte</h3>
+                <p>Si no encuentras la respuesta que necesitas, puedes contactar a nuestro equipo de soporte técnico.</p>
+                <a href="contacto.html">Contactar a soporte</a>
+            </div>
+        </section>
+    </div>
+        <section id="formulario-contacto">
+            <h2>Envíanos tu consulta</h2>
+            <form>
+                <label for="nombre">Nombre:</label><br>
+                <input type="text" id="nombre" name="nombre"><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email"><br>
+                <label for="consulta">Consulta:</label><br>
+                <textarea id="consulta" name="consulta" rows="4"></textarea><br>
+                <input type="submit" value="Enviar">
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Calculadoras INRI/ Class Todos los derechos reservados</p>
+    </footer>
+
+    <script>
+
+
+
+    </script>
+</body>
+</html>

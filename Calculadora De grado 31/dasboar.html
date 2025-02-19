@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Contenedor del Login */
+.login-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* Grupos de Input */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+}
+
+/* Botón de Login */
+button {
+    width: 100%;
+    padding: 10px;
+    background: #2575fc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+button:hover {
+    background: #1b5fd9;
+}
+
+/* Enlace de Registro */
+.register-link {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.register-link a {
+    color: #2575fc;
+    text-decoration: none;
+}
+
+/* Mensaje de Error */
+.error-message {
+    margin-top: 15px;
+    color: #ff4b5c;
+    font-size: 14px;
+    display: none;
+}
+    </style>
+</head>
+<body>
+    <div class="profile-icon" id="profileIcon">
+        <i class="fas fa-user-circle" id="userIcon"></i>
+    <p>Bienvenido a INRI</p>
+    </div>
+    <script>
+   // Obtener el usuario actual desde sessionStorage
+const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+
+if (currentUser) {
+    // Obtener la primera letra del nombre
+    const firstLetter = currentUser.firstName.charAt(0).toUpperCase();
+
+    // Cambiar el ícono por la primera letra
+    const userIcon = document.getElementById('userIcon');
+    userIcon.classList.remove('fa-user-circle');
+    userIcon.textContent = firstLetter;
+    userIcon.style.fontSize = '24px';
+    userIcon.style.fontWeight = 'bold';
+    window.location.href = 'index.html';  // Redirigir al login si hay usuario logueado
+} else {
+    // Redirigir al login si no hay usuario logueado
+    window.location.href = 'Login.html';
+}
+    </script>
+</body>
+</html>

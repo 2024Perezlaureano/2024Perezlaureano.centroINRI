@@ -1,0 +1,548 @@
+/* Estilos Generales */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0%;
+}
+/* central tex */
+h1,h2{
+    text-align: center;
+}
+.Perfil{
+    width: 60px;
+    height: 40px;
+    border-radius:50% ;
+}
+/* .perfil:active{
+
+} */
+/* estaticos */
+
+/* .fixes{
+    position: fixed;
+    background-color: #fff;
+    width: 20px;
+    max-height:80px;
+    height: 60px;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+} */
+/* Barra de Navegación */
+.navbar {
+    width: 90%;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-icons i {
+    cursor: pointer;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.nav-icons i:hover {
+    color: #2575fc;
+}
+
+/* Perfil del Usuario */
+.profile-container {
+    position: relative;
+}
+.perfil1{
+    position: relative;
+    bottom: 30px;
+}
+
+.profile-icon {
+    cursor: pointer;
+    font-size: 60px;
+    transition: transform 0.3s;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.profile-icon:hover {
+    transform: scale(1.1);
+}
+
+.profile-menu {
+    display:none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.profile-menu span {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.profile-menu button {
+    background: #ff4b5c;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.profile-menu button:hover {
+    background: #e43a4a;
+}
+
+/* Contenedor de Login y Registro */
+.login-container, .register-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box, .register-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 90%;
+    max-width: 300px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.login-box h2, .register-box h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.login-box input, .register-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.login-box button, .register-box button {
+    width: 100%;
+    padding: 10px;
+    background: #2575fc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.login-box button:hover, .register-box button:hover {
+    background: #1b5fd9;
+}
+
+.register-link, .login-link {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.register-link a, .login-link a {
+    color: #2575fc;
+    text-decoration: none;
+}
+
+/* Contenedor Principal */
+.main-container {
+    width: 90%;
+    max-width: 1200px;
+    padding: 20px;
+    flex: 1;
+}
+
+/* Sección de Calculadoras */
+.calculator-section {
+    margin-bottom: 40px;
+}
+
+.calculator-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.calculator-block {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.calculator-block:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.calculator-block i {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.calculator-block h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.calculator-block p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Sección de IA */
+.ai-section {
+    margin-bottom: 40px;
+}
+
+.ai-chat {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#chatBox {
+    height: 150px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+.chat-input {
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.chat-input button {
+    background: #2575fc;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.chat-input button:hover {
+    background: #1b5fd9;
+}
+
+/* Footer Innovador */
+.footer {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    
+}
+.flex{
+    display: flex;
+
+}
+li{
+    text-decoration: none;
+    text-decoration-line: none;
+    list-style: none;
+    margin: 15px;
+}
+ul{
+    position: relative;
+    left: 35%;
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+    
+}
+.footer-section h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.footer-section p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-section button {
+    background: #2575fc;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.footer-section button:hover {
+    background: #1b5fd9;
+}
+
+.background-options {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.background-options button {
+    background: #2575fc;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.background-options button:hover {
+    background: #1b5fd9;
+}
+.fixes{
+    position: fixed;
+    left: 85%;
+    bottom: 30px;
+}
+/* .Angelina{
+    font-size: 20px;
+} */
+.footer-bottom {
+    margin-top: 2px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+   
+}
+.footer-bottom P::after{
+    content: "¡Cristo te ama! -----------> Quiere transformar tu vida";
+    margin: 20%;
+}
+
+/* Responsive Design */
+/* ... (Estilos generales de la página) ... */
+
+/* Header */
+
+.contenedor-header {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ... (resto de estilos) ... */
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .contenedor-header {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav {
+        margin-top: 1em;
+    }
+    .contenedor-secciones {
+        flex-direction: column;
+    }
+    .seccion-soporte {
+        width: 100%;
+        margin-bottom: 1em;
+    }
+}
+/* genrerales de responsin */
+@media (max-width: 600px) {
+    header, main, footer {
+        padding: 1rem;
+    }
+}
+@media (max-width: 480px) {
+   /* ... (Estilos para móviles) ... */
+}
+/* Estilos para los botones de cambio de fondo */
+.background-options {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.background-options button {
+    background: #2575fc;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.background-options button:hover {
+    background: #1b5fd9;
+}
+
+/* Estilos para el footer */
+.footer {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.footer-section p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-section button {
+    background: #2575fc;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.footer-section button:hover {
+    background: #1b5fd9;
+}
+/* Estilos para el menú desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background: #2575fc;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dropbtn:hover {
+    background: #1b5fd9;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background 0.3s;
+}
+
+.dropdown-content a:hover {
+    background: rgba(37, 117, 252, 0.1);
+}
+
+/* Mostrar el menú desplegable al hacer clic */
+.dropdown:hover .dropdown-content {
+    display: block;
+}

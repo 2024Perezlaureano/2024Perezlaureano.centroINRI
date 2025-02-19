@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<style>
+    /* Estilos Generales */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+a{
+    color: #ff4b5c;
+    background-color: #ff4b5c;
+    border-radius: 5PX;
+}
+
+/* Contenedor del Login */
+.login-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* Grupos de Input */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+}
+
+/* Botón de Login */
+button {
+    width: 100%;
+    padding: 10px;
+    background: #2575fc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+button:hover {
+    background: #1b5fd9;
+}
+
+/* Enlace de Registro */
+.register-link {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.register-link a {
+    color: #2575fc;
+    text-decoration: none;
+}
+
+/* Mensaje de Error */
+.error-message {
+    margin-top: 15px;
+    color: #ff4b5c;
+    font-size: 14px;
+    display: none;
+}
+</style>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Iniciar Sesión</h2>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="username"><i class="fas fa-user"></i> Usuario</label>
+                    <input type="text" id="username" placeholder="Ingresa tu usuario" required>
+                </div>
+                <div class="input-group">
+                    <label for="password"><i class="fas fa-lock"></i> Contraseña</label>
+                    <input type="password" id="password" placeholder="Ingresa tu contraseña" required>
+                </div>
+                <button type="submit">Ingresar <i class="fas fa-arrow-right"></i></button>
+            </form>
+            <p class="register-link">¿No tienes cuenta? <a href="Registrar.html">Regístrate</a></p>
+            <div id="errorMessage" class="error-message"></div>
+        </div>
+    </div>  
+
+
+    <script>
+
+document.getElementById('loginForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    // Obtener los valores del formulario
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // Validar campos vacíos
+    if (!username || !password) {
+        showError('Por favor, completa todos los campos.');
+        return;
+    }
+
+    // Obtener usuarios guardados
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+
+    // Buscar el usuario en la "base de datos"
+    const user = users.find(user => user.username === username && user.password === password);
+    if (user) {
+        // Guardar el usuario actual en sessionStorage
+        sessionStorage.setItem('currentUser', JSON.stringify(user));
+
+        // Redirigir al dashboard después del login
+        window.location.href = 'dasboar.html';
+    } else {
+        showError('Usuario o contraseña incorrectos.');
+    }
+});
+
+// Función para mostrar mensajes de error
+function showError(message) {
+    const errorMessage = document.getElementById('errorMessage');
+    errorMessage.textContent = message;
+    errorMessage.style.display = 'block';
+}
+    </script>
+</body>
+</html>

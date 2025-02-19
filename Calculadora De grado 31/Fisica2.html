@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadoras Avanzadas de Física</title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <style>
+        body {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: white;
+        }
+        .main{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .calculator {
+            background-color: white;
+            color: black;
+            padding: 20px;
+            margin: 15px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            width: 300px;
+        }
+        .calculator h2 { color: #2a5298; }
+        .input-group { margin-bottom: 15px; }
+        .input-group label { display: block; font-weight: bold; }
+        .input-group input { width: 100%; padding: 8px; margin-top: 5px; }
+        button {
+            background-color: #2a5298;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+        }
+        button:hover { background-color: #1e3c72; }
+        .result { margin-top: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Avanzadas de Física</h1>
+<div class="main">
+    <div class="calculator">
+        <h2>Trabajo y Potencia</h2>
+        <div class="input-group">
+            <label>Fuerza (N):</label>
+            <input type="number" id="force">
+        </div>
+        <div class="input-group">
+            <label>Distancia (m):</label>
+            <input type="number" id="distance">
+        </div>
+        <div class="input-group">
+            <label>Ángulo (grados):</label>
+            <input type="number" id="angle">
+        </div>
+        <div class="input-group">
+            <label>Tiempo (s):</label>
+            <input type="number" id="time">
+        </div>
+        <button onclick="calculateWorkPower()">Calcular Trabajo y Potencia</button>
+        <div class="result" id="result-work-power"></div>
+    </div>
+
+    <div class="calculator">
+        <h2>Fuerza Eléctrica (Ley de Coulomb)</h2>
+        <div class="input-group">
+            <label>Carga 1 (C):</label>
+            <input type="number" id="charge1">
+        </div>
+        <div class="input-group">
+            <label>Carga 2 (C):</label>
+            <input type="number" id="charge2">
+        </div>
+        <div class="input-group">
+            <label>Distancia (m):</label>
+            <input type="number" id="distance-electric">
+        </div>
+        <button onclick="calculateElectricForce()">Calcular Fuerza Eléctrica</button>
+        <div class="result" id="result-electric-force"></div>
+    </div>
+</div>
+    <script>
+        function calculateWorkPower() {
+            const force = parseFloat(document.getElementById('force').value);
+            const distance = parseFloat(document.getElementById('distance').value);
+            const angle = parseFloat(document.getElementById('angle').value) * (Math.PI / 180);
+            const time = parseFloat(document.getElementById('time').value);
+
+            const work = force * distance * Math.cos(angle);
+            const power = work / time;
+
+            document.getElementById('result-work-power').innerText = `Trabajo: ${work.toFixed(2)} J, Potencia: ${power.toFixed(2)} W`;
+        }
+
+        function calculateElectricForce() {
+            const charge1 = parseFloat(document.getElementById('charge1').value);
+            const charge2 = parseFloat(document.getElementById('charge2').value);
+            const distance = parseFloat(document.getElementById('distance-electric').value);
+
+            const k = 8.99e9; // Constante de Coulomb
+            const force = (k * charge1 * charge2) / (distance * distance);
+
+            document.getElementById('result-electric-force').innerText = `Fuerza Eléctrica: ${force.toExponential(2)} N`;
+        }
+    </script>
+</body>
+</html>

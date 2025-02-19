@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadoras Innovadoras</title>
+    <link rel="stylesheet" href="msin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    
+
+    
+    <!-- Barra de Navegación -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-brands fa-yelp"></i>
+            INRI</div>
+            <div class="flex">
+                <div class="footer-section">
+                    <div class="dropdown">
+                        <button class="dropbtn">Seleccionar Fondo <i class="fas fa-chevron-down"></i></button>
+                        <div class="dropdown-content">
+                            <a href="#" onclick="changeBackground('linear-gradient(135deg, #6a11cb, #2575fc)')">Fondo 1</a>
+                            <a href="#" onclick="changeBackground('linear-gradient(135deg, #ff6f61, #ffcc00)')">Fondo 2</a>
+                            <a href="#" onclick="changeBackground(' linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,153,1) 35%, rgba(0,212,255,1) 100%)')">Fondo 3</a>
+                            <a href="#" onclick="changeBackground('radial-gradient(circle, rgba(89,14,47,1) 33%, rgba(14,57,110,1) 100%)')">Fondo 4</a>
+                            <a href="#" onclick="changeBackground('radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(221,5,49,1) 100%)')">Fondo 5</a>
+                            <a href="#" onclick="changeBackground('linear-gradient(90deg, rgba(242,56,56,0.924878003003003) 28%, rgba(0,32,255,0.906859984984985) 100%)')">Fondo 6</a>
+                            <a href="#" onclick="changeBackground('linear-gradient(318deg, rgba(56,133,242,0.924878003003003) 22%, rgba(0,255,60,0.906859984984985) 85%)')">Fondo 7</a>
+                            <a href="#" onclick="changeBackground('linear-gradient(145deg, rgba(255,249,26,1) 21%, rgba(245,1,36,0.972926051051051) 100%)')">Fondo 8</a>
+                            <a href="#" onclick="changeBackground('linear-gradient(145deg, rgba(49,159,219,1) 12%, rgba(255,234,74,1) 49%, rgba(0,241,156,0.9759290540540541)100%)')">Fondo 9</a>
+                            <a href="#" onclick="changeBackground('linear-gradient(145deg, rgba(184,5,221,1) 37%, rgba(251,63,239,1) 87%)')">Fondo 10</a>
+                        </div>
+                    </div>
+                 </div>
+                    
+            </div>
+            <div class="nav-icons">
+                <!-- <i class="fas fa-history" id="historyIcon" title="Historial"></i>  -->
+              <!-- <div class="profile-container" id="profileContainer"> -->
+                   <!-- <button onclick="redirectToPage('Login.html')" class="Perfil"> -->
+                      <!-- <div class="profile-icon" id="profileIcon">
+                          <!-- <i class="fas fa-user-circle" id="userIcon"></i> -->
+                      <!-- </div> --> 
+                   </button>
+                </div>
+                
+            
+            </div> 
+            <nav>
+                <!-- Botón de perfil con menú desplegable -->
+                <div class="profile-container" id="profileContainer">
+                    <div class="profile-icon" onclick="toggleProfileMenu()">
+                        <i class="fas fa-user-circle" id="userIcon"></i>
+                    </div>
+                    <!-- Menú desplegable -->
+                    <div class="profile-menu" id="profileMenu">
+                        <div class="profile-info">
+                            <p><strong>Nombre:</strong> <span id="profileName"></span></p>
+                            <p><strong>Usuario:</strong> <span id="profileUsername"></span></p>
+                            <p><strong>Teléfono:</strong> <span id="profilePhone"></span></p>
+                            <a href="">Historial</a>
+                        </div>
+                        <button onclick="logout()">Cerrar Sesión</button>
+                    </div>
+                </div>
+            </nav>
+               
+    </nav>
+   <!-- esteticos div -->
+    <!-- <div class="fixes">
+        <ul>
+            <li><a href="soporte.html">
+                <i class="fa-solid fa-user-gear"></i>
+            </a></li>
+            <li><a href="privacidad.html">
+                <i class="fa-solid fa-shield"></i>
+            </a></li>
+            <li><a href="terminos de uso.html">
+                <i class="fa-brands fa-accusoft"></i>
+            </a></li>
+            <li><a href="terminos de uso.html">
+                <i class="fa-solid fa-book"></i>
+            </a></li>
+        </ul>
+        
+    </div> -->
+    <!-- Contenedor Principal -->
+    <div class="main-container">
+        <!-- Sección de Calculadoras -->
+        <section class="calculator-section">
+            <h1>Elige una Calculadora</h1>
+            <div class="calculator-grid">
+                <div class="calculator-block" onclick="redirectToCalculator('normal.html')">
+                    <i class="fas fa-calculator"></i>
+                    <h2> Básica</h2>
+                    <p>Operaciones matemáticas simples.</p>
+                </div>
+                <div class="fixes">
+                    <button onclick="redirectToPage('Notificaciones.html')" class="Perfil">
+                       <i class="fa-solid fa-bell"></i>
+                    </button>
+                </div>
+                <div class="calculator-block" onclick="redirectToCalculator('Financiera.html')">
+                    <i class="fas fa-chart-line"></i>
+                    <h2>Financiera</h2>
+                    <p>Préstamos, intereses y más.</p>
+                </div>
+                <div class="calculator-block" onclick="redirectToCalculator('Estadistica.html')">
+                    <i class="fas fa-ruler-combined"></i>
+                    <h2>Conversiones</h2>
+                    <p>Convierte unidades de medida.</p>
+                </div>
+                <div class="calculator-block" onclick="redirectToCalculator('Fisica1.html')">
+                    <i class="fa-brands fa-fulcrum"></i>
+                    <h2>fisica 1 </h2>
+                    <p>Movimiento, fuerza, cinectica</p>
+                </div>
+                <div class="calculator-block" onclick="redirectToCalculator('Fisica2.html')">
+                    <i class="fas fa-chart-line"></i>
+                    <h2>fisica 2 </h2>
+                    <p>Potencia y Electricidad .</p>
+                </div>
+                <div class="calculator-block" onclick="redirectToCalculator('Energetica.html')">
+                    <i class="fa-solid fa-bolt"></i>
+                    <h2>Energetica</h2>
+                    <p>Cantidad de kw por h</p>
+                </div>
+                <div class="calculator-block" onclick="redirectToCalculator('corporal.html')">
+                    <i class="fa-solid fa-users"></i>
+                    <h2>Corporal</h2>
+                    <p>Medicamentos, IMC, Tasa de goteo.</p>
+                </div>
+                <div class="calculator-block" onclick="redirectToCalculator('cercuitos.html')">
+                    <i class="fa-brands fa-asymmetrik"></i>
+                    <h2>Circuitos</h2>
+                    <p>Esfuerzo, ley Ohm</p>
+                </div>
+                <div class="calculator-block" onclick="redirectToCalculator('Quimica.html')">
+                    <i class="fa-solid fa-flask"></i>
+                    <h2>Quimica</h2>
+                    <p>Facilidad en calculos de moles y mas.</p>
+                </div>
+                <div class="calculator-block" onclick="redirectToCalculator('IA.html')">
+                    <i class="fa-solid fa-hourglass-start"></i>
+                    <h2>IA</h2>
+                    <p>Ingresa cualquier problema y encuentra tu la solucion .</p>
+                </div>
+                <div class="calculator-block" onclick="redirectToCalculator('IA.html')">
+                    <i class="fa-solid fa-spinner"></i>
+                    <h2>Nuevos proyectos</h2>
+                    <p>Pronto tendremos mas variedades de calculadoras </p>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- Sección de IA -->
+        <section class="ai-section">
+            <h2>Asistente Virtual</h2>
+            <div class="ai-chat">
+                <div id="chatBox"></div>
+                <div class="chat-input">
+                    <input type="text" id="userInput" placeholder="Escribe tu pregunta...">
+                    <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer Innovador -->
+    <style>
+        /* Estilos básicos */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            text-align: center;
+        }
+        .footer-section {
+            padding: 20px;
+        }
+        #motivationalQuote {
+            font-size: 1.5em;
+            font-style: italic;
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff3b2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="footer-section">
+        <h3 class="Frase">
+            <i class="fa-solid fa-comments"></i>
+        </h3>
+        <p id="motivationalQuote">"No te rindas, comienza ahora mismo."</p>
+        <button onclick="changeQuote()">Cambiar</button>
+    </div>
+
+    <script>
+        // Array de frases motivadoras
+        const motivationalQuotes = [
+            "El éxito es la suma de pequeños esfuerzos repetidos día tras día.",
+            "No te rindas, comienza ahora mismo.",
+            "Cada día es una nueva oportunidad para cambiar tu vida.",
+            "El único límite para nuestros logros es el que nos ponemos a nosotros mismos.",
+            "Si puedes soñarlo, puedes hacerlo.",
+            "El esfuerzo continuo es la clave para desbloquear nuestro potencial.",
+            "Cada paso que das te acerca más a tu meta.",
+            "La perseverancia es el secreto del éxito.",
+            "Las matemáticas son el lenguaje con el que Dios ha escrito el universo.",
+            "Las matemáticas son la reina de las ciencias y la aritmética es la reina de las matemáticas.",
+            "Las matemáticas son la gimnasia del espíritu y una preparación para la filosofía.",
+            "Las matemáticas pueden ser definidas como la ciencia del orden y la medida.",
+            "La física no es nada más que matemáticas aplicadas.",
+            "La naturaleza habla en el lenguaje de las matemáticas.",
+            "Sin matemáticas, no hay física.",
+            "Las matemáticas son la herramienta con la que se construyen los modelos de la física.",
+            "La física es la ciencia que mide lo que existe y busca patrones que relacionen esas medidas.",
+            "Las matemáticas son el alfabeto con el que está escrito el libro de la naturaleza.",
+            "La física es el intento de entender el universo con la ayuda de las matemáticas.",
+            "Las matemáticas son la clave para abrir las puertas de la física.",
+            "La física es la ciencia que nos permite entender el mundo que nos rodea, y las matemáticas son la herramienta que nos permite hacerlo.",
+            "Las matemáticas son la columna vertebral de la física.",
+            "La matemática es la ciencia del orden y la medida, de bellas cadenas de razonamientos, todos sencillos y fáciles.",
+            "El estudio de las matemáticas es como el río Nilo: comienza en minucias y termina en inmensidades.",
+            "Las matemáticas son el alfabeto con el cual Dios ha escrito el universo.",
+            "En matemáticas, la libertad consiste en la capacidad de cambiar de punto de vista sin cambiar de objeto.",
+            "La belleza de las matemáticas sólo se muestra a sus seguidores más pacientes.",
+            "Los números son los amigos más fieles que podemos tener.",
+            "La matemática es la reina de las ciencias y la aritmética es la reina de las matemáticas.",
+            "Las matemáticas son una gimnasia del espíritu y una preparación para la filosofía.",
+            "Las matemáticas pueden ser definidas como la ciencia del orden y la medida.",
+            "La química es la ciencia de las moléculas y sus transformaciones, y las matemáticas son la herramienta que nos permite entenderlas.",
+            "La química es la ciencia que estudia la materia y sus propiedades, y las matemáticas son el lenguaje que nos permite describirlas.",
+            "La química es la ciencia que nos permite entender cómo funciona el mundo a nivel molecular, y las matemáticas son la herramienta que nos permite hacerlo.",
+            "Las matemáticas son la clave para entender las reacciones químicas y sus velocidades.",
+            "La química es la ciencia que nos permite crear nuevas moléculas y materiales, y las matemáticas son la herramienta que nos permite diseñarlos.",
+            "Las matemáticas son esenciales para el cálculo de las propiedades de las moléculas y las reacciones químicas.",
+            "La química es la ciencia que nos permite entender cómo se relacionan la estructura y las propiedades de las moléculas, y las matemáticas son la herramienta que nos permite hacerlo.",
+            "Las matemáticas son fundamentales para el diseño de experimentos químicos y el análisis de datos.",
+            "La química es la ciencia que nos permite entender cómo se producen las reacciones químicas, y las matemáticas son la herramienta que nos permite modelarlas.",
+            "Las matemáticas son la base de la química teórica y computacional."
+        ];
+
+        // Función para cambiar la frase
+        function changeQuote() {
+            const quoteElement = document.getElementById('motivationalQuote');
+            const randomIndex = Math.floor(Math.random() * motivationalQuotes.length);
+            quoteElement.textContent = motivationalQuotes[randomIndex];
+        }
+
+        // Mostrar una frase aleatoria al cargar la página
+        window.onload = function() {
+            changeQuote();
+        };
+    </script>
+    
+        <div class="footer-bottom">
+               <!-- <i class="fa-brands fa-whatsapp"></i> -->
+                <ul>
+                    <li><a href="soporte.html">
+                        <i class="fa-solid fa-user-gear" style="color: #fcfbf7;"></i></i>
+                    </a></li>
+                    <li><a href="privacidad.html">
+                        <i class="fa-solid fa-shield" style="color: #fcfbf7;"></i>
+                    </a></li>
+                    <li><a href="terminos de uso.html">
+                        <i class="fa-brands fa-accusoft" style="color: #fcfbf7;" ></i>
+                    </a></li>
+                    <li><a href="terminos de uso.html">
+                        <i class="fa-solid fa-book" style="color: #fcfbf7;"></i>
+                    </a></li>
+                </ul>
+                
+               <!-- Todos los derechos reservados por el autor Michael Perez Laureano -->
+                <p>&copy; 2025 Calculadoras INRI.Class-Todos los derechos reservados.</p>
+             
+        </div>
+    </footer>
+    <style>
+        /* Estilos para el contenedor del perfil */
+.profile-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Estilos para el icono del usuario */
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #2575fc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Estilos para el menú desplegable */
+.profile-menu {
+    position: absolute;
+    top: 50px; /* Ajusta la posición debajo del icono */
+    right: 0;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: none; /* Oculto por defecto */
+    z-index: 1000;
+    width: 200px; /* Ancho del menú */
+}
+
+.profile-menu .profile-info {
+    margin-bottom: 15px;
+}
+
+.profile-menu p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.profile-menu button {
+    width: 100%;
+    padding: 10px;
+    background-color: #2575fc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.profile-menu button:hover {
+    background-color: #1b5fd9;
+}
+    </style>
+
+    <script src="main.js"></script>
+    <script>
+        // Obtener el usuario actual desde sessionStorage
+        const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+    
+        if (currentUser) {
+            // Obtener la primera letra del nombre
+            const firstLetter = currentUser.firstName.charAt(0).toUpperCase();
+    
+            // Cambiar el ícono por la primera letra
+            const userIcon = document.getElementById('userIcon');
+            userIcon.classList.remove('fa-user-circle'); // Eliminar el ícono de FontAwesome
+            userIcon.textContent = firstLetter; // Mostrar la primera letra
+            userIcon.style.fontSize = '24px'; // Ajustar el tamaño
+            userIcon.style.fontWeight = 'bold'; // Ajustar el grosor
+            userIcon.style.display = 'flex'; // Centrar la letra
+            userIcon.style.alignItems = 'center';
+            userIcon.style.justifyContent = 'center';
+        } else {
+            // Redirigir al login si no hay usuario logueado
+            window.location.href = 'Login.html';
+
+        }
+        // Obtener el usuario actual desde sessionStorage
+
+const currentUsert = JSON.parse(sessionStorage.getItem('currentUser'));
+
+if (currentUser) {
+    // Obtener la primera letra del nombre
+    const firstLetter = currentUser.firstName.charAt(0).toUpperCase();
+
+    // Cambiar el ícono por la primera letra
+    const userIcon = document.getElementById('userIcon');
+    userIcon.classList.remove('fa-user-circle'); // Eliminar el ícono de FontAwesome
+    userIcon.textContent = firstLetter; // Mostrar la primera letra
+    userIcon.style.fontSize = '24px'; // Ajustar el tamaño
+    userIcon.style.fontWeight = 'bold'; // Ajustar el grosor
+    userIcon.style.display = 'flex'; // Centrar la letra
+    userIcon.style.alignItems = 'center';
+    userIcon.style.justifyContent = 'center';
+
+    // Cargar la información del usuario en el menú desplegable
+    document.getElementById('profileName').textContent = `${currentUser.firstName} ${currentUser.lastName}`;
+    document.getElementById('profileUsername').textContent = currentUser.username;
+    document.getElementById('profilePhone').textContent = currentUser.phone;
+} else {
+    // Redirigir al login si no hay usuario logueado
+    window.location.href = 'Login.html';
+}
+
+// Función para mostrar/ocultar el menú desplegable
+function toggleProfileMenu() {
+    const profileMenu = document.getElementById('profileMenu');
+    if (profileMenu.style.display === 'block') {
+        profileMenu.style.display = 'none';
+    } else {
+        profileMenu.style.display = 'block';
+    }
+}
+
+// Función para cerrar sesión
+function logout() {
+    sessionStorage.removeItem('currentUser'); // Eliminar el usuario actual
+    window.location.href = 'Login.html'; // Redirigir al login
+}
+    </script>
+</body>
+</html>

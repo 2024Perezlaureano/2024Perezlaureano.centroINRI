@@ -1,0 +1,101 @@
+#pie-pagina {
+    background-color: #f8f8f8;
+    padding: 20px;
+    font-family: sans-serif;
+}
+
+.contenedor {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.seccion {
+    width: 23%;
+    margin-bottom: 20px;
+}
+.login-form {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: none;
+}
+
+.login-form h2 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.login-form button:hover {
+    background-color: #555;
+}
+.logo {
+    max-width: 150px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+.lista-contactos li, .lista-enlaces li {
+    margin-bottom: 5px;
+    color: #0a0a0a;
+    text-decoration: none;
+}
+
+.lista-contactos i, .redes-sociales i {
+    margin-left:10px;
+    color: #0a0a0a;
+    line-height: 2;
+}
+
+.redes-sociales a {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 1.2em;
+    color: #f7f3f3;
+}
+
+.barra-inferior {
+    text-align: center;
+    padding: 10px;
+    background-color:#2a5298;
+    color: #ffffff;
+   
+}
+
+.barra-inferior a {
+    color: #0a0a0a;
+    text-decoration: none;
+}
+.footer{
+    margin: 0%;
+    
+}

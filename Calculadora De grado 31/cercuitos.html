@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadoras Técnicas Avanzadas</title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <style>
+        body {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+            min-height: 100vh;
+            margin: 0;
+            color: white;
+        }
+        h1 { margin-top: 20px; }
+        .main{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+        }
+        .calculator {
+            background-color: #ffffff;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px;
+            width: 400px;
+            color: #333;
+        }
+        .calculator h2 { color: #2a5298; }
+        .input-group { margin-bottom: 15px; }
+        .input-group label { font-weight: bold; }
+        .input-group input { width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; }
+        button {
+            background-color: #2a5298;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover { background-color: #1e3c72; }
+        #result { margin-top: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Calcular circuitos electricos</h1>
+
+
+    <!-- Calculadora Financiera -->
+    <!-- <div class="calculator">
+        <h2>Calculadora Financiera</h2>
+        <div class="input-group">
+            <label>Capital Inicial:</label>
+            <input type="number" id="capital">
+        </div>
+        <div class="input-group">
+            <label>Tasa de Interés Anual (%):</label>
+            <input type="number" id="interest">
+        </div>
+        <div class="input-group">
+            <label>Años de Inversión:</label>
+            <input type="number" id="years">
+        </div>
+        <div class="input-group">
+            <label>Aporte Mensual:</label>
+            <input type="number" id="monthlyContribution">
+        </div>
+        <button onclick="calculateInvestment()">Calcular Rendimiento</button>
+        <div id="result-financial"></div>
+    </div> -->
+<div class="main">
+    <!-- Calculadora de Resistencia de Materiales -->
+    <div class="calculator">
+        <h2>Resistencia de Materiales (Esfuerzo)</h2>
+        <div class="input-group">
+            <label>Fuerza (N):</label>
+            <input type="number" id="force">
+        </div>
+        <div class="input-group">
+            <label>Área (m²):</label>
+            <input type="number" id="area">
+        </div>
+        <button onclick="calculateStress()">Calcular Esfuerzo</button>
+        <div id="result-stress"></div>
+    </div>
+
+    <!-- Calculadora de Circuitos Eléctricos (Ley de Ohm) -->
+    <div class="calculator">
+        <h2>Circuitos Eléctricos (Ley de Ohm)</h2>
+        <div class="input-group">
+            <label>Voltaje (V):</label>
+            <input type="number" id="voltage">
+        </div>
+        <div class="input-group">
+            <label>Resistencia (Ω):</label>
+            <input type="number" id="resistance">
+        </div>
+        <button onclick="calculateCurrent()">Calcular Corriente</button>
+        <div id="result-ohm"></div>
+    </div>
+</div>
+    <!-- Script JS -->
+    <script>
+        function calculateInvestment() {
+            const capital = parseFloat(document.getElementById('capital').value);
+            const interest = parseFloat(document.getElementById('interest').value) / 100;
+            const years = parseFloat(document.getElementById('years').value);
+            const monthlyContribution = parseFloat(document.getElementById('monthlyContribution').value);
+
+            let totalAmount = capital;
+            const months = years * 12;
+
+            for (let i = 0; i < months; i++) {
+                totalAmount += monthlyContribution;
+                totalAmount *= (1 + interest / 12);
+            }
+
+            document.getElementById('result-financial').innerText = `Monto Final: ${totalAmount.toFixed(2)} `;
+        }
+
+        function calculateStress() {
+            const force = parseFloat(document.getElementById('force').value);
+            const area = parseFloat(document.getElementById('area').value);
+            const stress = force / area;
+            document.getElementById('result-stress').innerText = `Esfuerzo: ${stress.toFixed(2)} Pa`;
+        }
+
+        function calculateCurrent() {
+            const voltage = parseFloat(document.getElementById('voltage').value);
+            const resistance = parseFloat(document.getElementById('resistance').value);
+            const current = voltage / resistance;
+            document.getElementById('result-ohm').innerText = `Corriente: ${current.toFixed(2)} A`;
+        }
+    </script>
+</body>
+</html>

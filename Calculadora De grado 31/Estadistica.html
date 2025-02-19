@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadoras Estadísticas Avanzadas</title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <style>
+        body {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: white;
+        }
+        .calculator {
+            background-color: white;
+            color: black;
+            padding: 20px;
+            margin: 15px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            width: 300px;
+        }
+        .calculator h2 { color: #2a5298; }
+        .input-group { margin-bottom: 15px; }
+        .input-group label { display: block; font-weight: bold; }
+        .input-group input { width: 100%; padding: 8px; margin-top: 5px; }
+        button {
+            background-color: #2a5298;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+        }
+        .main{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+        }
+        button:hover { background-color: #1e3c72; }
+        .result { margin-top: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Calculadoras Estadísticas</h1>
+  <div class="main">
+    <div class="calculator">
+        <h2>Promedio</h2>
+        <div class="input-group">
+            <label>Valores separados por comas:</label>
+            <input type="text" id="average-values">
+        </div>
+        <button onclick="calculateAverage()">Calcular Promedio</button>
+        <div class="result" id="result-average"></div>
+    </div>
+
+    <div class="calculator">
+        <h2>Desviación Estándar</h2>
+        <div class="input-group">
+            <label>Valores separados por comas:</label>
+            <input type="text" id="stddev-values">
+        </div>
+        <button onclick="calculateStdDev()">Calcular Desviación Estándar</button>
+        <div class="result" id="result-stddev"></div>
+    </div>
+
+    <div class="calculator">
+        <h2>Intervalo de Confianza</h2>
+        <div class="input-group">
+            <label>Promedio:</label>
+            <input type="number" step="any" id="mean">
+        </div>
+        <div class="input-group">
+            <label>Desviación Estándar:</label>
+            <input type="number" step="any" id="stddev">
+        </div>
+        <div class="input-group">
+            <label>Tamaño de la muestra:</label>
+            <input type="number" id="sample-size">
+        </div>
+        <button onclick="calculateConfidenceInterval()">Calcular Intervalo de Confianza (95%)</button>
+        <div class="result" id="result-confidence"></div>
+    </div>
+  </div>
+    <script>
+        function calculateAverage() {
+            const values = document.getElementById('average-values').value.split(',').map(Number);
+            const sum = values.reduce((acc, val) => acc + val, 0);
+            const average = sum / values.length;
+            document.getElementById('result-average').innerText = `Promedio: ${average.toFixed(2)}`;
+        }
+
+        function calculateStdDev() {
+            const values = document.getElementById('stddev-values').value.split(',').map(Number);
+            const mean = values.reduce((acc, val) => acc + val, 0) / values.length;
+            const squaredDiffs = values.map(val => (val - mean) ** 2);
+            const variance = squaredDiffs.reduce((acc, val) => acc + val, 0) / values.length;
+            const stdDev = Math.sqrt(variance);
+            document.getElementById('result-stddev').innerText = `Desviación Estándar: ${stdDev.toFixed(2)}`;
+        }
+
+        function calculateConfidenceInterval() {
+            const mean = parseFloat(document.getElementById('mean').value);
+            const stddev = parseFloat(document.getElementById('stddev').value);
+            const sampleSize = parseInt(document.getElementById('sample-size').value);
+
+            const marginOfError = 1.96 * (stddev / Math.sqrt(sampleSize));
+            const lowerBound = mean - marginOfError;
+            const upperBound = mean + marginOfError;
+
+            document.getElementById('result-confidence').innerText = `Intervalo de Confianza (95%): [${lowerBound.toFixed(2)}, ${upperBound.toFixed(2)}]`;
+        }
+    </script>
+</body>
+</html>

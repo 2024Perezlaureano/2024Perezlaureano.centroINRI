@@ -3,217 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login y Historial</title>
-<style>
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
-
-.nav-icons {
-    display: flex;
-    justify-content: flex-end;
-    padding: 10px;
-    background-color: #333;
-}
-
-.profile-icon {
-    cursor: pointer;
-    color: white;
-}
-
-#loginForm, #registerForm, #calculator, #history {
-    margin: 20px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-input, button {
-    margin: 5px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button {
-    cursor: pointer;
-    background-color: #333;
-    color: white;
-    border: none;
-}
-
-button:hover {
-    background-color: #555;
-}
-</style>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title>Historial de Operaciones</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="msin.css">
 </head>
 <body>
-    <nav>
-        <div class="nav-icons">
-            <div class="profile-container" id="profileContainer">
-                <div class="profile-icon" onclick="toggleProfileMenu()">
-                    <i class="fas fa-user-circle"></i>
-                </div>
-                <div>
-                    <button onclick="showNotifications()">
-                       <i class="fa-solid fa-bell"></i>
-                    </button>
-                </div>
+    <style>
+        body{
+            text-align: center;
+            background: linear-gradient(145deg, rgba(184,5,221,1) 26%, rgba(251,63,239,1) 87%)
+        }
+        button{
+            background-color: blue;
+            color: white;
+            width: 30%;
+            height: 60px;
+            border-radius: 30px;
+
+        }
+        button:hover{
+            background-color: rgb(202, 73, 73);
+        }
+        button:active{
+            background-color: red;
+
+
+        }
+        .flextr{
+            width: 30%;
+            height: 40px;
+           position: relative;
+           left: 59%;
+        } 
+    </style>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-brands fa-yelp"></i>
+            INRI</div>
+            <div class="flextr">
+                <div class="footer-section">
+                    <div class="dropdown">
+                        <button class="dropbtn">B</i></button>
+                        <div class="dropdown-content">
+                            <a href="#" onclick="changeBackground('linear-gradient(135deg, #6a11cb, #2575fc)')">Fondo 1</a>
+                            <a href="#" onclick="changeBackground('linear-gradient(135deg, #ff6f61, #ffcc00)')">Fondo 2</a>
+                            <a href="#" onclick="changeBackground(' linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,153,1) 35%, rgba(0,212,255,1) 100%)')">Fondo 3</a>
+                            <a href="#" onclick="changeBackground('radial-gradient(circle, rgba(89,14,47,1) 33%, rgba(14,57,110,1) 100%)')">Fondo 4</a>
+                            <a href="#" onclick="changeBackground('radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(221,5,49,1) 100%)')">Fondo 5</a>
+                            <a href="#" onclick="changeBackground('linear-gradient(90deg, rgba(242,56,56,0.924878003003003) 28%, rgba(0,32,255,0.906859984984985) 100%)')">Fondo 6</a>
+                            <a href="#" onclick="changeBackground('linear-gradient(318deg, rgba(56,133,242,0.924878003003003) 22%, rgba(0,255,60,0.906859984984985) 85%)')">Fondo 7</a>
+                            <a href="#" onclick="changeBackground('linear-gradient(145deg, rgba(255,249,26,1) 21%, rgba(245,1,36,0.972926051051051) 100%)')">Fondo 8</a>
+                            <a href="#" onclick="changeBackground('linear-gradient(145deg, rgba(49,159,219,1) 12%, rgba(255,234,74,1) 49%, rgba(0,241,156,0.9759290540540541)100%)')">Fondo 9</a>
+                            <a href="#" onclick="changeBackground('linear-gradient(145deg, rgba(184,5,221,1) 37%, rgba(251,63,239,1) 87%)')">Fondo 10</a>
+                        </div>
+                    </div>
+                 </div>
+                    
             </div>
-        </div>
+            <div class="nav-icons">
+                <!-- <i class="fas fa-history" id="historyIcon" title="Historial"></i>  -->
+              <!-- <div class="profile-container" id="profileContainer"> -->
+                   <!-- <button onclick="redirectToPage('Login.html')" class="Perfil"> -->
+                      <!-- <div class="profile-icon" id="profileIcon">
+                          <!-- <i class="fas fa-user-circle" id="userIcon"></i> -->
+                      <!-- </div> --> 
+                   </button>
+                </div>
+            
+            </div> 
+            <nav>
+                <!-- Botón de perfil con menú desplegable -->
+                <div class="profile-container" id="profileContainer">
+                    <div class="profile-icon" onclick="toggleProfileMenu()">
+                        <i class="fas fa-user-circle" id="userIcon"></i>
+                    </div>
+                    <!-- Menú desplegable -->
+                    <div class="profile-menu" id="profileMenu">
+                        <div class="profile-info">
+                            <p><strong>Nombre:</strong> <span id="profileName"></span></p>
+                            <p><strong>Usuario:</strong> <span id="profileUsername"></span></p>
+                            <p><strong>Teléfono:</strong> <span id="profilePhone"></span></p>
+                            <a href="">Historial</a>
+                        </div>
+                        <button onclick="logout()">Cerrar Sesión</button>
+                    </div>
+                </div>
+            </nav>
+               
     </nav>
 
-    <div id="loginForm">
-        <h2>Iniciar Sesión</h2>
-        <input type="text" id="username" placeholder="Usuario">
-        <input type="password" id="password" placeholder="Contraseña">
-        <button onclick="login()">Iniciar Sesión</button>
-        <button onclick="showRegisterForm()">Crear Cuenta</button>
-    </div>
-
-    <div id="registerForm" style="display: none;">
-        <h2>Crear Cuenta</h2>
-        <input type="text" id="newUsername" placeholder="Nuevo Usuario">
-        <input type="password" id="newPassword" placeholder="Nueva Contraseña">
-        <button onclick="register()">Registrarse</button>
-        <button onclick="showLoginForm()">Volver a Iniciar Sesión</button>
-    </div>
-
-    <div id="calculator">
-        <h2>Calculadora</h2>
-        <input type="number" id="num1" placeholder="Número 1">
-        <input type="number" id="num2" placeholder="Número 2">
-        <button onclick="add()">Sumar</button>
-        <button onclick="subtract()">Restar</button>
-        <button onclick="multiply()">Multiplicar</button>
-        <button onclick="divide()">Dividir</button>
-        <p id="result"></p>
-    </div>
-
-    <div id="history">
-        <h2>Historial de Operaciones</h2>
-        <ul id="historyList"></ul>
-    </div>
+    <h1>Historial de Operaciones</h1>
+    <div id="historyList"></div>
+    <button onclick="clearHistory()">Limpiar Historial</button>
 
     <script>
-        let users = JSON.parse(localStorage.getItem('users')) || [];
-let currentUser = null;
+        // Obtener el usuario actual desde sessionStorage
+        const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
 
-function toggleProfileMenu() {
-    // Aquí puedes agregar la lógica para mostrar/ocultar el menú de perfil
-    alert("Menú de perfil");
-}
+        if (currentUser) {
+            // Obtener el historial desde localStorage
+            const history = JSON.parse(localStorage.getItem('operationsHistory')) || [];
 
-function showNotifications() {
-    // Aquí puedes agregar la lógica para mostrar notificaciones
-    alert("Notificaciones");
-}
+            // Filtrar el historial para mostrar solo las operaciones del usuario actual
+            const userHistory = history.filter(record => record.user === currentUser.username);
 
-function showLoginForm() {
-    document.getElementById('loginForm').style.display = 'block';
-    document.getElementById('registerForm').style.display = 'none';
-}
+            // Mostrar el historial en la página
+            const historyList = document.getElementById('historyList');
+            if (userHistory.length > 0) {
+                userHistory.forEach(record => {
+                    const recordElement = document.createElement('div');
+                    recordElement.innerHTML = `
+                        <p><strong>Operación:</strong> ${record.operation}</p>
+                        <p><strong>Resultado:</strong> ${record.result}</p>
+                        <p><strong>Fecha y Hora:</strong> ${record.timestamp}</p>
+                        <hr>
+                    `;
+                    historyList.appendChild(recordElement);
+                });
+            } else {
+                historyList.innerHTML = "<p>No hay operaciones registradas.</p>";
+            }
+        } else {
+            // Redirigir al login si no hay usuario logueado
+            window.location.href = 'Login.html';
+        }
+        function clearHistory() {
+    const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
 
-function showRegisterForm() {
-    document.getElementById('loginForm').style.display = 'none';
-    document.getElementById('registerForm').style.display = 'block';
-}
-
-function login() {
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    const user = users.find(u => u.username === username && u.password === password);
-
-    if (user) {
-        currentUser = user;
-        alert("Inicio de sesión exitoso");
-        // Aquí puedes redirigir al usuario a la calculadora o mostrar la calculadora
-    } else {
-        alert("Usuario o contraseña incorrectos");
-    }
-}
-
-function register() {
-    const newUsername = document.getElementById('newUsername').value;
-    const newPassword = document.getElementById('newPassword').value;
-
-    if (users.some(u => u.username === newUsername)) {
-        alert("El usuario ya existe");
-    } else {
-        users.push({ username: newUsername, password: newPassword, history: [] });
-        localStorage.setItem('users', JSON.stringify(users));
-        alert("Cuenta creada exitosamente");
-        showLoginForm();
-    }
-}
-
-function add() {
-    const num1 = parseFloat(document.getElementById('num1').value);
-    const num2 = parseFloat(document.getElementById('num2').value);
-    const result = num1 + num2;
-    document.getElementById('result').innerText = `Resultado: ${result}`;
-    saveHistory(`Suma: ${num1} + ${num2} = ${result}`);
-}
-
-function subtract() {
-    const num1 = parseFloat(document.getElementById('num1').value);
-    const num2 = parseFloat(document.getElementById('num2').value);
-    const result = num1 - num2;
-    document.getElementById('result').innerText = `Resultado: ${result}`;
-    saveHistory(`Resta: ${num1} - ${num2} = ${result}`);
-}
-
-function multiply() {
-    const num1 = parseFloat(document.getElementById('num1').value);
-    const num2 = parseFloat(document.getElementById('num2').value);
-    const result = num1 * num2;
-    document.getElementById('result').innerText = `Resultado: ${result}`;
-    saveHistory(`Multiplicación: ${num1} * ${num2} = ${result}`);
-}
-
-function divide() {
-    const num1 = parseFloat(document.getElementById('num1').value);
-    const num2 = parseFloat(document.getElementById('num2').value);
-    if (num2 === 0) {
-        alert("No se puede dividir por cero");
-        return;
-    }
-    const result = num1 / num2;
-    document.getElementById('result').innerText = `Resultado: ${result}`;
-    saveHistory(`División: ${num1} / ${num2} = ${result}`);
-}
-
-function saveHistory(operation) {
     if (currentUser) {
-        currentUser.history.push(operation);
-        const userIndex = users.findIndex(u => u.username === currentUser.username);
-        users[userIndex] = currentUser;
-        localStorage.setItem('users', JSON.stringify(users));
-        updateHistory();
+        // Obtener el historial actual
+        const history = JSON.parse(localStorage.getItem('operationsHistory')) || [];
+
+        // Filtrar y eliminar los registros del usuario actual
+        const updatedHistory = history.filter(record => record.user !== currentUser.username);
+
+        // Guardar el historial actualizado
+        localStorage.setItem('operationsHistory', JSON.stringify(updatedHistory));
+
+        // Recargar la página para reflejar los cambios
+        window.location.reload();
     }
 }
-
-function updateHistory() {
-    const historyList = document.getElementById('historyList');
-    historyList.innerHTML = '';
-    if (currentUser) {
-        currentUser.history.forEach(op => {
-            const li = document.createElement('li');
-            li.innerText = op;
-            historyList.appendChild(li);
-        });
-    }
-}
-
-// Inicialización
-showLoginForm();
     </script>
+    <script src="main.js"></script>
 </body>
 </html>

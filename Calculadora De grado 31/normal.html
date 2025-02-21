@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora Avanzada</title>
+    <link rel="stylesheet" href="msin.css">
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
     <style>
         body {
-           background: linear-gradient(135deg, #6a11cb, #2575fc);
+            background-color: #2a5298;
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 130vh;
             margin: 0;
             color: #2a5298;
         }
@@ -31,7 +32,7 @@
             margin-bottom: 10px;
             padding-right: 10px;
             box-sizing: border-box;
-            border: 1px solid #ccc;
+            border: 1px solid #cac4c4;
             border-radius: 5px;
         }
         .buttons {
@@ -57,7 +58,65 @@
     </style>
 </head>
 <body>
-    <div class="calculator">
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-brands fa-yelp"></i>
+            INRI</div>
+            <div class="flext">
+                <div class="footer-section">
+                    <div class="dropdown">
+                        <button class="dropbtn">Seleccionar Fondo <i class="fas fa-chevron-down"></i></button>
+                        <div class="dropdown-content">
+                            <a href="#" onclick="changeBackground('linear-gradient(135deg, #6a11cb, #2575fc)')">Fondo 1</a>
+                            <a href="#" onclick="changeBackground('linear-gradient(135deg, #ff6f61, #ffcc00)')">Fondo 2</a>
+                            <a href="#" onclick="changeBackground(' linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,153,1) 35%, rgba(0,212,255,1) 100%)')">Fondo 3</a>
+                            <a href="#" onclick="changeBackground('radial-gradient(circle, rgba(89,14,47,1) 33%, rgba(14,57,110,1) 100%)')">Fondo 4</a>
+                            <a href="#" onclick="changeBackground('radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(221,5,49,1) 100%)')">Fondo 5</a>
+                            <a href="#" onclick="changeBackground('linear-gradient(90deg, rgba(242,56,56,0.924878003003003) 28%, rgba(0,32,255,0.906859984984985) 100%)')">Fondo 6</a>
+                            <a href="#" onclick="changeBackground('linear-gradient(318deg, rgba(56,133,242,0.924878003003003) 22%, rgba(0,255,60,0.906859984984985) 85%)')">Fondo 7</a>
+                            <a href="#" onclick="changeBackground('linear-gradient(145deg, rgba(255,249,26,1) 21%, rgba(245,1,36,0.972926051051051) 100%)')">Fondo 8</a>
+                            <a href="#" onclick="changeBackground('linear-gradient(145deg, rgba(49,159,219,1) 12%, rgba(255,234,74,1) 49%, rgba(0,241,156,0.9759290540540541)100%)')">Fondo 9</a>
+                            <a href="#" onclick="changeBackground('linear-gradient(145deg, rgba(184,5,221,1) 37%, rgba(251,63,239,1) 87%)')">Fondo 10</a>
+                        </div>
+                    </div>
+                 </div>
+                    
+            </div>
+            <div class="nav-icons">
+                <!-- <i class="fas fa-history" id="historyIcon" title="Historial"></i>  -->
+              <!-- <div class="profile-container" id="profileContainer"> -->
+                   <!-- <button onclick="redirectToPage('Login.html')" class="Perfil"> -->
+                      <!-- <div class="profile-icon" id="profileIcon">
+                          <!-- <i class="fas fa-user-circle" id="userIcon"></i> -->
+                      <!-- </div> --> 
+                   </button>
+                </div>
+            
+            </div> 
+            <nav>
+                <!-- Botón de perfil con menú desplegable -->
+                <div class="profile-container" id="profileContainer">
+                    <div class="profile-icon" onclick="toggleProfileMenu()">
+                        <i class="fas fa-user-circle" id="userIcon"></i>
+                    </div>
+                    <!-- Menú desplegable -->
+                    <div class="profile-menu" id="profileMenu">
+                        <div class="profile-info">
+                            <p><strong>Nombre:</strong> <span id="profileName"></span></p>
+                            <p><strong>Usuario:</strong> <span id="profileUsername"></span></p>
+                            <p><strong>Teléfono:</strong> <span id="profilePhone"></span></p>
+                            <a href="">Historial</a>
+                        </div>
+                        <button onclick="logout()">Cerrar Sesión</button>
+                    </div>
+                </div>
+            </nav>
+               
+    </nav>
+
+    <div class="calculator" style="margin-top: 10px;
+    
+    ">
         <input type="text" id="display" disabled>
         <div class="buttons">
             <button onclick="clearDisplay()">C</button>
@@ -91,7 +150,28 @@
             <button onclick="calculateFactorial()">n!</button>
         </div>
     </div>
+    <!-- apartado para guardar las operaciones  -->
 
+    <script>
+       function calculateResult() {
+    try {
+        // Obtener la expresión del display
+        const expression = document.getElementById('display').value;
+
+        // Calcular el resultado
+        const result = eval(expression);
+
+        // Mostrar el resultado en el display
+        document.getElementById('display').value = result;
+
+        // Guardar la operación en el historial
+        saveOperationToHistory(expression, result);
+    } catch (error) {
+        alert('Expresión inválida');
+    }
+}
+    </script>
+<!-- Para se sesion de canbiar colores -->
     <script>
         function appendValue(value) {
             document.getElementById('display').value += value;
@@ -148,6 +228,96 @@
             }
             document.getElementById('display').value = factorial;
         }
+        function calcular() {
+    // Obtener los valores ingresados
+    const num1 = parseFloat(document.getElementById('num1').value);
+    const num2 = parseFloat(document.getElementById('num2').value);
+    const operacion = document.getElementById('operacion').value;
+
+    let resultado;
+    switch (operacion) {
+        case '+':
+            resultado = num1 + num2;
+            break;
+        case '-':
+            resultado = num1 - num2;
+            break;
+        case '*':
+            resultado = num1 * num2;
+            break;
+        case '/':
+            resultado = num1 / num2;
+            break;
+        default:
+            resultado = 'Operación no válida';
+    }
+
+    // Mostrar el resultado
+    document.getElementById('resultado').textContent = `Resultado: ${resultado}`;
+
+    // Guardar la operación en el historial
+    saveOperationToHistory(`${num1} ${operacion} ${num2}`, resultado);
+}
+// Función para guardar operaciones en el historial
+function saveOperationToHistory(operation, result) {
+    // Obtener el usuario actual desde sessionStorage
+    const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+
+    if (currentUser) {
+        // Obtener el historial actual desde localStorage
+        const history = JSON.parse(localStorage.getItem('operationsHistory')) || [];
+
+        // Crear un nuevo registro de operación
+        const newRecord = {
+            user: currentUser.username, // Nombre de usuario
+            operation: operation,       // Operación realizada (ej: "5 + 3")
+            result: result,             // Resultado de la operación (ej: 8)
+            timestamp: new Date().toLocaleString() // Fecha y hora
+        };
+
+        // Agregar el nuevo registro al historial
+        history.push(newRecord);
+
+        // Guardar el historial actualizado en localStorage
+        localStorage.setItem('operationsHistory', JSON.stringify(history));
+    }
+}
+function calculateResult() {
+    try {
+        // Obtener la expresión del display
+        const expression = document.getElementById('display').value;
+
+        // Calcular el resultado
+        const result = eval(expression);
+
+        // Mostrar el resultado en el display
+        document.getElementById('display').value = result;
+
+        // Guardar la operación en el historial
+        saveOperationToHistory(expression, result);
+    } catch (error) {
+        alert('Expresión inválida');
+    }
+}function clearHistory() {
+    const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+
+    if (currentUser) {
+        // Obtener el historial actual
+        const history = JSON.parse(localStorage.getItem('operationsHistory')) || [];
+
+        // Filtrar y eliminar los registros del usuario actual
+        const updatedHistory = history.filter(record => record.user !== currentUser.username);
+
+        // Guardar el historial actualizado
+        localStorage.setItem('operationsHistory', JSON.stringify(updatedHistory));
+
+        // Recargar la página para reflejar los cambios
+        window.location.reload();
+    }
+}
     </script>
+    
+
+    <script src="main.js" ></script>
 </body>
 </html>

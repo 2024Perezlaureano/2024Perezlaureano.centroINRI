@@ -155,4 +155,5 @@ function changeBackground(background) {
 function changeBackground(background) {
     document.body.style.background = background;
 }
-// Historial de la calculadora y parte del login
+// Historial logica 
+

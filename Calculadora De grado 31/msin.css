@@ -152,6 +152,10 @@ h1,h2{
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+.profile-container{
+    position: relative;
+    bottom: 20px;
+}
 
 .login-box h2, .register-box h2 {
     margin-bottom: 20px;
@@ -306,9 +310,22 @@ h1,h2{
     flex: 1;
     min-width: 200px;
     
+    
 }
 .flex{
     display: flex;
+    position: relative;
+    left: 15%;
+    top: 30px;
+    width: 40px;
+
+}
+.flext{
+    display: flex;
+    position: relative;
+    left: 52%;
+    top: 18px;
+    width: 40px;
 
 }
 li{
@@ -370,8 +387,9 @@ ul{
 }
 .fixes{
     position: fixed;
-    left: 85%;
+    left: 93%;
     bottom: 30px;
+    
 }
 /* .Angelina{
     font-size: 20px;
@@ -387,7 +405,11 @@ ul{
 }
 .footer-bottom P::after{
     content: "¡Cristo te ama! -----------> Quiere transformar tu vida";
-    margin: 20%;
+    margin-left: 30%;
+}
+.footer-bottom P{
+    position: relative;
+    left: 10px;
 }
 
 /* Responsive Design */

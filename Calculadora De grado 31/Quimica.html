@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadoras Técnicas Avanzadas</title>
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="msin.css">
     <style>
         body {
             background: linear-gradient(135deg, #6a11cb, #2575fc);
@@ -13,7 +14,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: start;
-            min-height: 100vh;
+            min-height: 120vh;
             margin: 0;
             color: white;
         }
@@ -23,6 +24,10 @@
             grid-template-columns: repeat(2,1fr);
 
         }
+        /* .footer-section{
+            position:;
+            top: 20px;
+        } */
         .calculator {
             background-color: #ffffff;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
@@ -50,6 +55,60 @@
     </style>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-brands fa-yelp"></i>
+            INRI</div>
+            <div class="flext">
+                <div class="footer-section">
+                    <div class="dropdown">
+                        <button class="dropbtn">Seleccionar Fondo <i class="fas fa-chevron-down"></i></button>
+                        <div class="dropdown-content">
+                            <a href="#" onclick="changeBackground('linear-gradient(135deg, #6a11cb, #2575fc)')">Fondo 1</a>
+                            <a href="#" onclick="changeBackground('linear-gradient(135deg, #ff6f61, #ffcc00)')">Fondo 2</a>
+                            <a href="#" onclick="changeBackground(' linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,153,1) 35%, rgba(0,212,255,1) 100%)')">Fondo 3</a>
+                            <a href="#" onclick="changeBackground('radial-gradient(circle, rgba(89,14,47,1) 33%, rgba(14,57,110,1) 100%)')">Fondo 4</a>
+                            <a href="#" onclick="changeBackground('radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(221,5,49,1) 100%)')">Fondo 5</a>
+                            <a href="#" onclick="changeBackground('linear-gradient(90deg, rgba(242,56,56,0.924878003003003) 28%, rgba(0,32,255,0.906859984984985) 100%)')">Fondo 6</a>
+                            <a href="#" onclick="changeBackground('linear-gradient(318deg, rgba(56,133,242,0.924878003003003) 22%, rgba(0,255,60,0.906859984984985) 85%)')">Fondo 7</a>
+                            <a href="#" onclick="changeBackground('linear-gradient(145deg, rgba(255,249,26,1) 21%, rgba(245,1,36,0.972926051051051) 100%)')">Fondo 8</a>
+                            <a href="#" onclick="changeBackground('linear-gradient(145deg, rgba(49,159,219,1) 12%, rgba(255,234,74,1) 49%, rgba(0,241,156,0.9759290540540541)100%)')">Fondo 9</a>
+                            <a href="#" onclick="changeBackground('linear-gradient(145deg, rgba(184,5,221,1) 37%, rgba(251,63,239,1) 87%)')">Fondo 10</a>
+                        </div>
+                    </div>
+                 </div>
+                    
+            </div>
+            <div class="nav-icons">
+                <!-- <i class="fas fa-history" id="historyIcon" title="Historial"></i>  -->
+              <!-- <div class="profile-container" id="profileContainer"> -->
+                   <!-- <button onclick="redirectToPage('Login.html')" class="Perfil"> -->
+                      <!-- <div class="profile-icon" id="profileIcon">
+                          <!-- <i class="fas fa-user-circle" id="userIcon"></i> -->
+                      <!-- </div> --> 
+                   </button>
+                </div>
+            
+            </div> 
+            <nav>
+                <!-- Botón de perfil con menú desplegable -->
+                <div class="profile-container" id="profileContainer">
+                    <div class="profile-icon" onclick="toggleProfileMenu()">
+                        <i class="fas fa-user-circle" id="userIcon"></i>
+                    </div>
+                    <!-- Menú desplegable -->
+                    <div class="profile-menu" id="profileMenu">
+                        <div class="profile-info">
+                            <p><strong>Nombre:</strong> <span id="profileName"></span></p>
+                            <p><strong>Usuario:</strong> <span id="profileUsername"></span></p>
+                            <p><strong>Teléfono:</strong> <span id="profilePhone"></span></p>
+                            <a href="">Historial</a>
+                        </div>
+                        <button onclick="logout()">Cerrar Sesión</button>
+                    </div>
+                </div>
+            </nav>
+     </nav>
     <h1>Calculadoras Quimicas</h1>
 <div class="main">
     <!-- Calculadora de Concentración -->
@@ -158,5 +217,6 @@
             document.getElementById('result-drip').innerText = `Tasa de Goteo: ${tasaGoteo.toFixed(2)} ml/min`;
         }
     </script>
+    <script src="main.js"></script>
 </body>
 </html>
